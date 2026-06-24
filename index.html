@@ -382,7 +382,7 @@ Responde SOLO en JSON sin backticks ni texto extra:
     document.getElementById('res-album').innerHTML = html;
     toast(`✓ ${pg} pegados, ${fa} faltantes detectados`);
   } catch(e) {
-    document.getElementById('res-album').innerHTML = `<div class="result-empty"><span class="icon">⚠️</span>Error al analizar.<br>Intenta con buena iluminación y la página completa.</div>`;
+    document.getElementById('res-album').innerHTML = '<div class="result-empty"><span class="icon">⚠️</span><strong style="color:var(--red)">Error detallado:</strong><br><span style="font-size:11px;word-break:break-all;color:var(--text)">' + (e.message || e.toString()) + '</span></div>';
     toast('Error al analizar la imagen', 'error');
   }
   evt.target.value = '';
